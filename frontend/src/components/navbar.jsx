@@ -6,30 +6,17 @@ const Navbar = () => {
   const showref=useRef(null);
 
   const toggleMenu=()=>{
-    setShowMenu(!showMenu);
+    setShowMenu((prev)=>!prev);
   }
-
-  const handleClick=(e)=>{
-    if(showref.current==e.target || showref.current.contains(e.target)){return null}
-    else{toggleMenu()};
-  }
-
-  useEffect(
-    ()=>{
-  if(showMenu){
-  document.addEventListener("click",handleClick)}
-
-  return document.removeEventListener("click",handleClick);
-},[showMenu])
 
   return (
     <>
-      <nav className="w-screen bg-gray-100 h-[65px] fixed top-0 flex align-middle flex-row justify-between py-3 md:text-xl text-md">
+      <nav className="w-screen bg-gray-50 h-[65px] sticky top-0 flex align-middle flex-row justify-between py-3 md:text-xl text-md">
 
         {/* the first section */}
-        <div className="md:w-1/3 w-2/6  md:text-3xl text-2xl h-full flex justify-between font-semibold text-gray-800">
+        <div className="md:w-1/3 w-fit  md:text-3xl text-2xl h-full flex justify-between font-semibold text-gray-800">
           <div className="w-full md:w-1/2 flex justify-between h-full align-middle text-center md:justify-end">
-            <h1 className="self-center">BookStore</h1>
+            <h1 className="self-center md:ps-0 ps-3">BookStore</h1>
           </div>
         </div>
 
@@ -44,7 +31,7 @@ const Navbar = () => {
         </div>
 
         {/* the last section */}
-        <div className="md:w-1/3 w-4/5 min-h-full flex justify-end sm:justify-around gap-1">
+        <div className="md:w-1/3 w-4/5 min-h-full flex md:justify-end justify-end sm:justify-around gap-1">
         
         <div className="sm:w-3/6 flex w-1/6 border-2 border-gray-200">
         <input type="text" placeholder="Search books..." className="xl:w-5/6 md:w-full hidden sm:block min-h-full p-1 pl-2 text-xl md:text-2xl bg-gray-100 text-black outline-none" />
@@ -67,9 +54,9 @@ const Navbar = () => {
         </button>
         </div>
 
-        <div className="md:w-2/12 w-1/12 md:p-1  rounded-sm flex justify-center hover:bg-gray-800 bg-gray-700">
-        <button className="text-white w-4/6 min-h-full font-light text-center rounded-md text-md md:text-xl flex align-middle" onClick={toggleMenu}>
-        <i class="fa-solid fa-bars text-2xl self-center"></i>
+        <div className="md:w-2/12 w-2/12 md:p-1  rounded-sm flex justify-center hover:bg-gray-800 bg-gray-700" onClick={toggleMenu}>
+        <button className="text-white w-2/6 min-h-full font-light text-center rounded-md text-md md:text-xl flex justify-center align-middle">
+        <i class="fa-solid fa-bars text-2xl md:me-0 me-1 self-center"></i>
         </button>
         </div>
 
