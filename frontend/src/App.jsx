@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Navbar from './components/navbar'
 import Hero from "./components/hero"
@@ -11,7 +11,7 @@ function App() {
     <>
    <Navbar/>
    <Hero/>
-    <Footer/>
+   <Footer/>
     </>
   )
 }
