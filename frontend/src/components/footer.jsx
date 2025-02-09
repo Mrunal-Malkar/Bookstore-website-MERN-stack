@@ -1,14 +1,15 @@
 import React from 'react'
+import {Link} from "react-router-dom"
 
 const Footer = () => {
   return (
     <div className='w-screen flex flex-col justify-center items-center gap-y-3 dark:bg-gray-900 dark:text-white bg-gray-200 text-gray-700 md:text-2xl text-xl font-light p-6 pt-12'>
         <div>
             <ul className='flex gap-x-3'>
-                <li>Home</li>
-                <li>Store</li>
-                <li>About</li>
-                <li>Contact us</li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/store">Store</Link></li>
+                <li><Link to="/about">About</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
             </ul>
         </div>
         <div className='flex flex-row gap-x-4'>
