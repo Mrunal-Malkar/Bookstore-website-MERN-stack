@@ -11,6 +11,10 @@ const bookSchema=new mongoose.Schema({
     },
     category:{
         type:String,
+    },
+    addedtocart:{
+        type:Boolean,
+        default:false
     }
 })
 

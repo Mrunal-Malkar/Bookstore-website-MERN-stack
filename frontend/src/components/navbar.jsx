@@ -64,7 +64,7 @@ const Navbar = () => {
             <NavLink className={({isActive})=>isActive?"text-blue-600":""} to="/store">Store</NavLink>
             </li>
             <li  className="hover:bg-gray-300 dark:hover:bg-gray-900 p-2">
-            <NavLink className={({isActive})=>isActive?"text-blue-600":""} to="/about">About</NavLink>
+            <NavLink className={({isActive})=>isActive?"text-blue-600":""} to="/cart">Cart</NavLink>
             </li>
             <li  className="hover:bg-gray-300 dark:hover:bg-gray-900 p-2">
             <NavLink className={({isActive})=>isActive?"text-blue-600":""} to="/contact">Contact</NavLink>
