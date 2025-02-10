@@ -47,11 +47,50 @@ const Hero = () => {
       </div>
 
       {/* the Why? part */}
-      {/* <div className='w-screen flex justify-center'>
-        <div className='w-full lg:w-5/6'>
-        
+      <div className='w-screen flex flex-col dark:bg-gray-800 justify-center align-center items-center p-2 gap-y-12'>
+        <div className='w-full md:w-5/6 flex flex-col pb-2 pt-2 gap-2'>
+        <h1 className='text-2xl md:text-5xl font-semibold text-black dark:text-gray-300'>Why choose BookStore for Books?</h1>
         </div>
-      </div> */}
+        <div className='w-full flex flex-row pt-2 gap-x-2 pb-2 lg:w-5/6 justify-center'>
+        
+        <motion.div
+        initial={{x:"32vw"}}
+        whileInView={{x:0}}
+        viewport={{once:true,amount:0.6}}
+        transition={{type:"spring",duration:1,stiffness:100,delay:0}}
+        className='w-4/12 md:w-3/12 z-3 flex flex-col justify-center align-center items-center p-2 bg-red-400 dark:text-gray-300'
+        >
+          <h1 className='text-xl font-semibold md:text-2xl'>Accesible</h1>
+          <p className='break-after-auto md:text-xl text-lg'>We are everywhere and open 24/7 for your services wether online or offline</p>
+        </motion.div>
+
+        {/* 2nd reason */}
+        <motion.div
+        initial={{y:0}}
+        whileInView={{y:"-3vh"}}
+        viewport={{once:true,amount:0.6}}
+        transition={{type:"spring",duration:1,stiffness:100,delay:3}}
+        className='w-4/12 md:w-3/12 z-1 flex flex-col bg-blue-400 dark:text-black justify-center align-center items-center p-2'
+        >
+        <h1 className='text-xl font-semibold md:text-2xl'>Stock!</h1>
+        <p className='break-after-auto md:text-xl text-lg'>We offer everything you need wether that be fictional or self-help book, we have all of them covered!</p>
+        </motion.div>
+
+        {/* 3rd reason */}
+        <motion.div
+        initial={{x:"-32vw"}}
+        viewport={{once:true,amount:0.6}}
+        whileInView={{x:0}}
+        transition={{type:"spring",duration:1,stiffness:100,delay:1}}
+        className='w-4/12 md:w-3/12 flex z-2 flex-col bg-green-400 dark:text-blue-950 justify-center align-center items-center p-2'
+        >
+        <h1 className='text-xl font-semibold md:text-2xl'>Pricing</h1>
+        <p className='break-after-auto md:text-xl text-lg'>By offering a competitive price for the goods we provide Value for money.</p>
+        </motion.div>
+        </div>
+      </div>
+
+<div className='w-[90%] m-auto border-black border-1 dark:border-white h-px'></div>
 
       {/* the free course part */}
       <div className='w-full flex justify-center dark:bg-gray-800 dark:text-white'>
