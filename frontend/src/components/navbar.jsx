@@ -67,7 +67,7 @@ const Navbar = () => {
             <NavLink className={({isActive})=>isActive?"text-blue-600":""} to="/cart">Cart</NavLink>
             </li>
             <li  className="hover:bg-gray-300 dark:hover:bg-gray-900 p-2">
-            <NavLink className={({isActive})=>isActive?"text-blue-600":""} to="/contact">Contact</NavLink>
+            <NavLink className={({isActive})=>isActive?"text-blue-600":""} to="/about">About</NavLink>
             </li>
           </ul>
         </div>
@@ -110,8 +110,8 @@ const Navbar = () => {
           <ul className="flex flex-col gap-3 text-lg">
             <li className="hover:bg-gray-300 p-2 rounded-md cursor-pointer"> <Link to="/">Home</Link></li>
             <li className="hover:bg-gray-300 p-2 rounded-md cursor-pointer"><Link to="/store">Store</Link></li>
+            <li className="hover:bg-gray-300 p-2 rounded-md cursor-pointer"><Link to="/cart">Cart</Link></li>
             <li className="hover:bg-gray-300 p-2 rounded-md cursor-pointer"><Link to="/about">About</Link></li>
-            <li className="hover:bg-gray-300 p-2 rounded-md cursor-pointer"><Link to="/contact">Contact</Link></li>
           </ul>
         </div>
       )}

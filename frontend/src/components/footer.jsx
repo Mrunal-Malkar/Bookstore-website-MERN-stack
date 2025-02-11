@@ -9,7 +9,7 @@ const Footer = () => {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/store">Store</Link></li>
                 <li><Link to="/cart">Cart</Link></li>
-                <li><Link to="/contact">Contact</Link></li>
+                <li><Link to="/about">About</Link></li>
             </ul>
         </div>
         <div className='flex flex-row gap-x-4'>
