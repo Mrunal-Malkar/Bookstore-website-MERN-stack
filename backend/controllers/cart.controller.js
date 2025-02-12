@@ -44,3 +44,24 @@ export const handleCart=async(req,res)=>{
  
     }
 }
+
+export const getBook=async(req,res)=>{
+    try{
+    
+    let bookId=req.body.bookId;
+    if(!bookId){return res.status(404).send("bookId is required!")};
+
+    let book=await Book.findOne({_id:bookId});
+    if(!book){return res.status(404).send("book not found")}
+
+    console.log("the book is:",book);
+    res.status(200).json(book)
+    }
+    catch(err){
+
+    console.log("error in fetching book info from getBook",err);
+    res.status(404).send("error in fetching book info from getBook");
+
+    }
+    
+}

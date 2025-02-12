@@ -1,11 +1,8 @@
 import express from "express";
-import booksrouter from "./routes/book.route.js";
-import Book from "./models/books.models.js";
 import mongoose from "mongoose";
 import cors from "cors"
 import { mongoDbConnect } from "./config/connectmongodb.config.js";
 import bookRoute from "./routes/book.route.js";
-import { configDotenv } from "dotenv";
 import dotenv from "dotenv"
 import cartRoute from "./routes/cart.route.js"
 
