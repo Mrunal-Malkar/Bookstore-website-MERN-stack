@@ -9,7 +9,7 @@ const Store = () => {
 
   const filterBooks = async () => {
     try {
-      let allBooks = await fetch("http://localhost:3000/store")
+      let allBooks = await fetch("http://localhost:3000/store");
       let jsonbooks = await allBooks.json();
 
       if (category == "All") {
