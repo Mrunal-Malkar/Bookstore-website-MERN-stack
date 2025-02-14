@@ -11,14 +11,14 @@ const Cart = () => {
 
   const showBook = async (bookId) => {
     setShow(false);
-    let response = await axios.post(`http://localhost:3000/cart/getbook`, { bookId });
+    let response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/cart/getbook`, { bookId });
     setViewBook(response.data);
     if(response){setShow(true);}
   }
 
   const getCartBooks = async () => {
     try {
-      let Books = await fetch("http://localhost:3000/store")
+      let Books = await fetch(`${import.meta.env.VITE_BACKEND_URL}/store`)
       let BooksJson = await Books.json()
       console.log(BooksJson)
       let filteredCartBooks = BooksJson.filter(item => item.addedtocart == true)

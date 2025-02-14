@@ -10,7 +10,7 @@ const Store = () => {
 
   const filterBooks = async () => {
     try {
-      let allBooks = await fetch("http://localhost:3000/store");
+      let allBooks = await fetch(`${import.meta.env.VITE_BACKEND_URL}/store`);
       let jsonbooks = await allBooks.json();
 
       if (category == "All") {
@@ -31,7 +31,7 @@ const Store = () => {
   const handleCart = async (bookId) => {
     try {
 
-      let response = await axios.post("http://localhost:3000/cart/handle", { bookId })
+      let response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/cart/handle`, { bookId })
       setBooks(books.map(el => 
         el._id === bookId ? { ...el, addedtocart: !el.addedtocart } : el
       ));

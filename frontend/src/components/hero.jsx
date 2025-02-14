@@ -11,7 +11,7 @@ const Hero = () => {
   const fetchBooks = async () => {
     try {
 
-      let response = await axios.get("http://localhost:3000/store");
+      let response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/store`);
       setBook(response.data.slice(1, 4));
 
     } catch (err) {
