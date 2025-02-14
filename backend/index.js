@@ -10,7 +10,11 @@ const app=express();
 
 
 dotenv.config();
-app.use(cors({ origin: "https://bookstore-website-mern-stack.vercel.app"}));
+app.use(cors({
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true
+  }));
 app.use(express.json());
 
 mongoDbConnect()
