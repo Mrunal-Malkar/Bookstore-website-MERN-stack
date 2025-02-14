@@ -20,7 +20,6 @@ const Cart = () => {
     try {
       let Books = await fetch(`${import.meta.env.VITE_BACKEND_URL}/store`)
       let BooksJson = await Books.json()
-      console.log(BooksJson)
       let filteredCartBooks = BooksJson.filter(item => item.addedtocart == true)
       setCartBooks(filteredCartBooks);
 
@@ -37,7 +36,6 @@ const Cart = () => {
     cartBooks.forEach(element => {
       setTotalPrice((prev) => prev + element.price)
     })
-    console.log("re-rendered");
 
   }
 
