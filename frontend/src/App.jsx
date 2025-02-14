@@ -5,7 +5,6 @@ import Hero from "./components/hero"
 import Footer from './components/footer'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Store from './components/store'
-import Contact from './components/contact'
 import NotFound from './components/notfound'
 import Cart from './components/cart'
 import About from './components/about'

@@ -47,7 +47,9 @@ const Cart = () => {
 
   return (
     <>
-      <div className='dark:bg-gray-800 w-screen lg:p-12 dark:text-white flex lg:flex-row flex-col items-center p-4 lg:pt-12'>
+    {!show?<div className='flex justify-center font-semibold align-center text-xl md:text-2xl text-orange-500 dark:bg-gray-800'><h1>click on the book to see more info it</h1></div>
+    :null}
+    <div className='dark:bg-gray-800 w-screen lg:p-12 dark:text-white flex lg:flex-row flex-col items-center p-4 lg:pt-12'>
 
         <div className={show?'lg:w-3/6 w-full p-2 dark:bg-gray-800 lg:order-1 order-2 gap-y-4 font-semibold min-h-dvh flex-col flex flex-wrap':"lg:full w-full dark:bg-gray-800 lg:order-1 order-2 gap-y-4 font-semibold min-h-dvh flex-col flex flex-wrap"} >
 
@@ -64,9 +66,9 @@ const Cart = () => {
           }
 
           {cartBooks.length > 0 ? (
-            <div className='w-full flex text-2xl md:text-3xl flex-row bg-gray-700 border-2 border-gray-800 dark:border-gray-50'>
+            <div className='w-full flex text-2xl md:text-3xl flex-row bg-gray-300 dark:bg-gray-700 border-2 border-gray-800 dark:border-gray-50'>
               <div className='w-1/2 border-r-2 p-2 border-gray-800 dark:border-gray-50'>Total price:</div>
-              <div className='w-1/2 p-2 text-green-500 text-center'>{totalPrice}$</div>
+              <div className='w-1/2 p-2 text-green-700 text-center'>{totalPrice}$</div>
             </div>
           ) : null}
           {cartBooks.length > 0 ? (
