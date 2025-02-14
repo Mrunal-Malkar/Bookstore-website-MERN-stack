@@ -34,8 +34,10 @@ export const handleCart=async(req,res)=>{
             {new:true},
             )
 
+        let allbooks=await Book.find({});
+
         console.log(updatedBook.addedtocart?"added book to cart":"removed from cart");
-        res.status(200).json({message:updatedBook.addedtocart?"sucessfully added to cart":"sucessfuly removed from cart"})
+        res.status(200).send(allbooks);
     
     }catch(err){
     
@@ -64,4 +66,21 @@ export const getBook=async(req,res)=>{
 
     }
     
+}
+
+export const checkBook=async(req,res)=>{
+    try{
+    let {bookId}=req.body;
+    if(!bookId){res.status(404).send("bookid is required!")}
+    let book=await Book.findOne({_id:bookId});
+    
+    if(!book){res.status(404).send("no book found")}
+    let check=book.addedtocart;
+    
+    res.status(200).send(check)
+    
+    }catch(err){
+        console.log("something went wrong while checking addedtocart in checkBook controller",err);
+        res.status(404).json("something went wrong while checking addedtocart in checkBook controller")
+    }
 }

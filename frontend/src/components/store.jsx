@@ -4,6 +4,7 @@ import axios from "axios"
 const Store = () => {
 
   const dropdown = useRef()
+  const addcartref = useRef()
   const [books, setBooks] = useState([]);
   const [category, setCategory] = useState("All");
 
@@ -19,6 +20,7 @@ const Store = () => {
         let filteredBooks = jsonbooks.filter(item => item.category == category);
         setBooks(filteredBooks)
       }
+
     } catch (err) {
 
       console.log("cannot setBooks", err);
@@ -26,26 +28,14 @@ const Store = () => {
     }
   }
 
-  useEffect(() => {
-    const fetchBooks = async () => {
-      try {
-        let response = await fetch("http://localhost:3000/store");
-        let data = await response.json();
-        setBooks(data);
-      } catch (err) {
-        console.log("Error fetching books:", err);
-      }
-    };
-    fetchBooks();
-  }, []);
-
-
   const handleCart = async (bookId) => {
     try {
 
       let response = await axios.post("http://localhost:3000/cart/handle", { bookId })
-      console.log(response.data.message || response.data.error);
-
+      setBooks(books.map(el => 
+        el._id === bookId ? { ...el, addedtocart: !el.addedtocart } : el
+      ));
+      
     } catch (err) {
 
       console.log("error adding to cart", err)
@@ -53,9 +43,13 @@ const Store = () => {
     }
   }
 
+
   useEffect(() => {
-    filterBooks()
+   const filter=async()=>{
+    await filterBooks()}
+    filter()
   }, [category])
+
 
   return (
     <>
@@ -93,7 +87,23 @@ const Store = () => {
                   </div>
                 </div>
                 <div className='h-1/4 w-full text-lg md:text-xl self-center'>
-                  <button onClick={() => { handleCart(item._id) }} className='w-full justify-center dark:text-gray-900 bg-yellow-500'>Add to cart<i class="bi bi-cart"></i> </button>
+                  <button 
+                  ref={addcartref}
+                  onClick={() => { handleCart(item._id);}} 
+                  className={item.addedtocart?`w-full justify-center dark:text-gray-900 bg-green-600`:'w-full justify-center dark:text-gray-900 bg-yellow-500'}>
+                  
+                  {(!item.addedtocart)?(
+                    <>
+                    Add to cart
+                  <i class="bi bi-cart"></i>
+                  </>)
+                  :(
+                    <>
+                    Added to Cart
+                  <i class="bi bi-cart-check"></i>
+                  </>)
+                  } 
+                  </button>
                 </div>
 
               </div>
@@ -103,7 +113,6 @@ const Store = () => {
           }
         </div>
       </div>
-
 
     </>
   )
