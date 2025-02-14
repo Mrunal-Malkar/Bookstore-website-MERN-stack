@@ -1,9 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "/public/stylesheets/hero.css"
-import {motion} from "motion/react"
+import { motion } from "motion/react"
 import Cards from './cards'
+import axios from 'axios'
 
 const Hero = () => {
+
+  const [book, setBook] = useState([]);
+
+  const fetchBooks = async () => {
+    try {
+
+      let response = await axios.get("http://localhost:3000/store");
+      setBook(response.data.slice(1, 4));
+
+    } catch (err) {
+
+      console.log("error in fetching book in hero", err);
+
+    }
+  }
+
+  useEffect(() => { fetchBooks() }, [])
+
   return (
     <>
       <div className='w-screen flex justify-center dark:bg-gray-800 dark:text-white'>
@@ -12,8 +31,8 @@ const Hero = () => {
 
           <div className='w-full order-2 md:order-1 md:w-1/2 flex flex-col gap-14 p-4 md:gap-20 pt-20 md:pt-34'>
             <motion.div
-              initial={{ x: "50vw",y:"50vh", opacity: 0,scale:0.5 }} // Start off-screen (right)
-              animate={{ x: 0, y:0, opacity: 1,scale:1 }} // Move to original position
+              initial={{ x: "50vw", y: "50vh", opacity: 0, scale: 0.5 }} // Start off-screen (right)
+              animate={{ x: 0, y: 0, opacity: 1, scale: 1 }} // Move to original position
               transition={{ type: "tween", duration: 0.8, ease: "easeOut" }} // Smooth transition
               className='flex flex-col justify-center gap-3 text-3xl md:text-4xl xl:text-5xl font-semibold font-stretch-expanded'
             >
@@ -49,48 +68,48 @@ const Hero = () => {
       {/* the Why? part */}
       <div className='w-screen flex flex-col dark:bg-gray-800 justify-center align-center items-center p-2 gap-y-12'>
         <div className='w-full md:w-5/6 flex flex-col pb-2 pt-2 gap-2'>
-        <h1 className='text-2xl md:text-5xl font-semibold text-black dark:text-gray-300'>Why choose BookStore for Books?</h1>
+          <h1 className='text-2xl md:text-5xl font-semibold text-black dark:text-gray-300'>Why choose BookStore for Books?</h1>
         </div>
         <div className='w-full flex flex-row pt-2 gap-x-2 pb-2 lg:w-5/6 justify-center'>
-        
-        <motion.div
-        initial={{x:"32vw"}}
-        whileInView={{x:0}}
-        viewport={{once:true,amount:0.6}}
-        transition={{type:"spring",duration:1,stiffness:100,delay:0}}
-        className='w-4/12 md:w-3/12 z-3 flex flex-col justify-center align-center items-center p-2 bg-red-400 dark:text-gray-300'
-        >
-          <h1 className='text-xl font-semibold md:text-2xl'>Accesible</h1>
-          <p className='break-after-auto md:text-xl text-lg'>We are everywhere and open 24/7 for your services wether online or offline</p>
-        </motion.div>
 
-        {/* 2nd reason */}
-        <motion.div
-        initial={{y:0}}
-        whileInView={{y:"-3vh"}}
-        viewport={{once:true,amount:0.6}}
-        transition={{type:"spring",duration:1,stiffness:100,delay:3}}
-        className='w-4/12 md:w-3/12 z-1 flex flex-col bg-blue-400 dark:text-black justify-center align-center items-center p-2'
-        >
-        <h1 className='text-xl font-semibold md:text-2xl'>Stock!</h1>
-        <p className='break-after-auto md:text-xl text-lg'>We offer everything you need wether that be fictional or self-help book, we have all of them covered!</p>
-        </motion.div>
+          <motion.div
+            initial={{ x: "32vw" }}
+            whileInView={{ x: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ type: "spring", duration: 1, stiffness: 100, delay: 0 }}
+            className='w-4/12 md:w-3/12 z-3 flex flex-col justify-center align-center items-center p-2 bg-red-400 dark:text-gray-300'
+          >
+            <h1 className='text-xl font-semibold md:text-2xl'>Accesible</h1>
+            <p className='break-after-auto md:text-xl text-lg'>We are everywhere and open 24/7 for your services wether online or offline</p>
+          </motion.div>
 
-        {/* 3rd reason */}
-        <motion.div
-        initial={{x:"-32vw"}}
-        viewport={{once:true,amount:0.6}}
-        whileInView={{x:0}}
-        transition={{type:"spring",duration:1,stiffness:100,delay:1}}
-        className='w-4/12 md:w-3/12 flex z-2 flex-col bg-green-400 dark:text-blue-950 justify-center align-center items-center p-2'
-        >
-        <h1 className='text-xl font-semibold md:text-2xl'>Pricing</h1>
-        <p className='break-after-auto md:text-xl text-lg'>By offering a competitive price for the goods we provide Value for money.</p>
-        </motion.div>
+          {/* 2nd reason */}
+          <motion.div
+            initial={{ y: 0 }}
+            whileInView={{ y: "-3vh" }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ type: "spring", duration: 1, stiffness: 100, delay: 3 }}
+            className='w-4/12 md:w-3/12 z-1 flex flex-col bg-blue-400 dark:text-black justify-center align-center items-center p-2'
+          >
+            <h1 className='text-xl font-semibold md:text-2xl'>Stock!</h1>
+            <p className='break-after-auto md:text-xl text-lg'>We offer everything you need wether that be fictional or self-help book, we have all of them covered!</p>
+          </motion.div>
+
+          {/* 3rd reason */}
+          <motion.div
+            initial={{ x: "-32vw" }}
+            viewport={{ once: true, amount: 0.6 }}
+            whileInView={{ x: 0 }}
+            transition={{ type: "spring", duration: 1, stiffness: 100, delay: 1 }}
+            className='w-4/12 md:w-3/12 flex z-2 flex-col bg-green-400 dark:text-blue-950 justify-center align-center items-center p-2'
+          >
+            <h1 className='text-xl font-semibold md:text-2xl'>Pricing</h1>
+            <p className='break-after-auto md:text-xl text-lg'>By offering a competitive price for the goods we provide Value for money.</p>
+          </motion.div>
         </div>
       </div>
 
-<div className='w-[90%] m-auto border-black border-1 dark:border-white h-px'></div>
+      <div className='w-[90%] m-auto border-black border-1 dark:border-white h-px'></div>
 
       {/* the free course part */}
       <div className='w-full flex justify-center dark:bg-gray-800 dark:text-white'>
@@ -101,7 +120,7 @@ const Hero = () => {
       </div>
 
       {/* cards */}
-      <Cards/>
+      <Cards book={book} />
 
     </>
   )
