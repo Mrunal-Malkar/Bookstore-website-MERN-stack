@@ -1,6 +1,7 @@
 ##📚 Online Bookstore — MERN Stack Project##
 Welcome to my first fully integrated and deployed MERN Stack project — an Online Bookstore!
 This project showcases complete frontend and backend integration, user interactions, and smooth deployment from local development to production.
+![Screenshot (49)](https://github.com/user-attachments/assets/bb9e5ae9-27a9-4c4d-830e-b3ccf82ae961)
 
 🚀 Features
 ✅ Fullstack integration (React frontend + Node.js/Express backend)
