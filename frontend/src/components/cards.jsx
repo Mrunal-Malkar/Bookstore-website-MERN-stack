@@ -18,7 +18,8 @@ const Cards = ({book}) => {
               viewport={{ once:true, amount: 0.2 }}
               onClick={()=>{Navigate("/store")}}
               transition={{ type: "tween", ease: "backInOut", duration: 1 }}
-              className='w-11/12 md:w-1/3 h-fit mb-4 drop-shadow-2xl mt-4 dark:hover:bg-gray-900 bg-gray-200 rounded-lg hover:bg-gray-300 flex flex-col gap-2 dark:bg-gray-800 dark:text-white border-2 border-gray-300 dark:border-gray-900 dark:rounded-2xl'>
+              className='w-11/12 md:w-1/3 h-fit mb-4 drop-shadow-2xl mt-4 dark:hover:bg-gray-900 bg-gray-200 rounded-lg hover:bg-gray-300 flex flex-col gap-2 dark:bg-gray-800 dark:text-white border-2 border-gray-300 dark:border-gray-900 dark:rounded-2xl'
+              >
               <div className='h-3/4'>
                 <img
                   className='w-full h-full overflow-hidden'
