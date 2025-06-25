@@ -76,11 +76,22 @@ const Hero = () => {
             initial={{ x: "32vw" }}
             whileInView={{ x: 0 }}
             viewport={{ once: true, amount: 0.6 }}
-            transition={{ type: "spring", duration: 1, stiffness: 100, delay: 0 }}
-            className='w-4/12 md:w-3/12 z-3 flex flex-col justify-center align-center items-center p-2 bg-red-400 dark:text-gray-300'
+            transition={{
+              type: "spring",
+              duration: 1,
+              stiffness: 100,
+              delay: 0,
+            }}
+            className="w-4/12 md:w-3/12 z-3 flex flex-col justify-center align-center items-center p-2 rounded-2xl shadow-xl bg-sky-200 text-sky-900 dark:bg-sky-600 dark:text-gray-200 hover:scale-105 ransition-transform"
           >
-            <h1 className='text-xl font-semibold md:text-2xl'>Accesible</h1>
-            <p className='break-after-auto md:text-xl text-lg'>We are everywhere and open 24/7 for your services wether online or offline</p>
+            <h2 className="text-3xl font-bold mb-3 tracking-tight underline underline-offset-3">
+              Accessible
+            </h2>
+            <p className="text-center text-lg leading-relaxed">
+              We are <span className="font-bold"> Everywhere</span> and{" "}
+              <span className="font-bold">Open 24/7 </span>for your services
+              whether online or offline.
+            </p>
           </motion.div>
 
           {/* 2nd reason */}
@@ -88,11 +99,22 @@ const Hero = () => {
             initial={{ y: 0 }}
             whileInView={{ y: "-3vh" }}
             viewport={{ once: true, amount: 0.6 }}
-            transition={{ type: "spring", duration: 1, stiffness: 100, delay: 3 }}
-            className='w-4/12 md:w-3/12 z-1 flex flex-col bg-blue-400 dark:text-black justify-center align-center items-center p-2'
+            transition={{
+              type: "spring",
+              duration: 1,
+              stiffness: 100,
+              delay: 3,
+            }}
+            className="w-4/12 md:w-3/12 z-1 flex flex-col justify-center align-center items-center p-2 rounded-2xl shadow-xl bg-rose-200 text-rose-800 dark:bg-rose-500 dark:text-gray-200 hover:scale-105 transition-transform"
           >
-            <h1 className='text-xl font-semibold md:text-2xl'>Stock!</h1>
-            <p className='break-after-auto md:text-xl text-lg'>We offer everything you need wether that be fictional or self-help book, we have all of them covered!</p>
+            <h2 className="text-3xl font-bold mb-3 tracking-tight underline underline-offset-3">
+              Stock
+            </h2>
+            <p className="text-center text-lg leading-relaxed">
+              We offer everything you need whether that be{" "}
+              <span className="font-bold">Fictional</span> or <span className="font-bold">Self-help Book</span>, we
+              have all of them covered.
+            </p>
           </motion.div>
 
           {/* 3rd reason */}
@@ -100,11 +122,21 @@ const Hero = () => {
             initial={{ x: "-32vw" }}
             viewport={{ once: true, amount: 0.6 }}
             whileInView={{ x: 0 }}
-            transition={{ type: "spring", duration: 1, stiffness: 100, delay: 1 }}
-            className='w-4/12 md:w-3/12 flex z-2 flex-col bg-green-400 dark:text-blue-950 justify-center align-center items-center p-2'
+            transition={{
+              type: "spring",
+              duration: 1,
+              stiffness: 100,
+              delay: 1,
+            }}
+            className="w-4/12 md:w-3/12 flex z-2 flex-col justify-center align-center items-center p-2 rounded-2xl shadow-xl bg-emerald-200 text-emerald-900 dark:bg-emerald-600 dark:text-gray-200 hover:scale-105 transition-transform"
           >
-            <h1 className='text-xl font-semibold md:text-2xl'>Pricing</h1>
-            <p className='break-after-auto md:text-xl text-lg'>By offering a competitive price for the goods we provide Value for money.</p>
+            <h2 className="text-3xl font-bold mb-3 tracking-tight underline underline-offset-3 ">
+              Pricing
+            </h2>
+            <p className="text-center text-lg leading-relaxed">
+              By offering a competitive price for the goods we provide{" "}
+              <span className="font-bold">Value For Money</span>.
+            </p>
           </motion.div>
         </div>
       </div>
